@@ -212,7 +212,11 @@ class Actionsremoveconf
 					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id ;
 					$this->results = true;
 					$action_confirm = 'confirm_validate';
-					dol_syslog(get_class($this).'::action = validate', LOG_DEBUG, 1 , '', '');
+					$tab = GETPOST('tab');
+					if (!empty($tab)) {
+						$action_confirm = $action_confirm.'&tab='.$tab;
+					}
+						dol_syslog(get_class($this).'::action = validate', LOG_DEBUG, 1 , '', '');
 				}
 			}
 
@@ -221,6 +225,10 @@ class Actionsremoveconf
 				$this->results = true;
 				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
 				$action_confirm = 'confirm_modif';
+				$tab = GETPOST('tab');
+				if (!empty($tab)) {
+					$action_confirm = $action_confirm.'&tab='.$tab;
+				}
 				dol_syslog(get_class($this).'::action = modif', LOG_DEBUG, 1 , '', '');
 			}
 
