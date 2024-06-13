@@ -153,7 +153,7 @@ class Actionsremoveconf
 			//Delete
 			if (($action == 'delete') && ($user->rights->removeconf->propal_delete)){
 				$this->results = true;
-				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id.'&token='.newToken();
 				$action_confirm = 'confirm_delete';
 				dol_syslog(get_class($this).'::action = delete', LOG_DEBUG, 1 , '', '');
 			}
@@ -183,7 +183,7 @@ class Actionsremoveconf
 			//Delete
 			if (($action == 'delete') && ($user->rights->removeconf->delete_order)){
 				$this->results = true;
-				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id.'&token='.newToken();
 				$action_confirm = 'confirm_delete';
 				dol_syslog(get_class($this).'::action = delete', LOG_DEBUG, 1 , '', '');
 			}
@@ -214,7 +214,7 @@ class Actionsremoveconf
 					$action_confirm = 'confirm_validate';
 					$tab = GETPOST('tab');
 					if (!empty($tab)) {
-						$action_confirm = $action_confirm.'&tab='.$tab;
+						$action_confirm = $action_confirm.'&token='.newToken().'&tab='.$tab;
 					}
 						dol_syslog(get_class($this).'::action = validate', LOG_DEBUG, 1 , '', '');
 				}
@@ -227,7 +227,7 @@ class Actionsremoveconf
 				$action_confirm = 'confirm_modif';
 				$tab = GETPOST('tab');
 				if (!empty($tab)) {
-					$action_confirm = $action_confirm.'&tab='.$tab;
+					$action_confirm = $action_confirm.'&token='.newToken().'&tab='.$tab;
 				}
 				dol_syslog(get_class($this).'::action = modif', LOG_DEBUG, 1 , '', '');
 			}
@@ -265,7 +265,7 @@ class Actionsremoveconf
 			//Delete
 			if (($action == 'delete') && ($user->rights->removeconf->delete_invoice)){
 				$this->results = true;
-				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id.'&token='.newToken();
 				$action_confirm = 'confirm_delete';
 				dol_syslog(get_class($this).'::action = delete', LOG_DEBUG, 1 , '', '');
 			}
@@ -338,7 +338,7 @@ class Actionsremoveconf
 			//Delete
 			if (($action == 'delete') && ($user->rights->removeconf->delete_shipping)){
 				$this->results = true;
-				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id.'&token='.newToken();
 				$action_confirm = 'confirm_delete';
 				dol_syslog(get_class($this).'::action = delete', LOG_DEBUG, 1 , '', '');
 			}
@@ -346,7 +346,7 @@ class Actionsremoveconf
 			//Valid
 			if (($action == 'valid') && ($user->rights->removeconf->validate_shipping)){
 				$this->results = true;
-				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id.'&token='.newToken();
 				$action_confirm = 'confirm_valid';
 				dol_syslog(get_class($this).'::action = valid', LOG_DEBUG, 1 , '', '');
 			}
@@ -396,7 +396,7 @@ class Actionsremoveconf
 			//Delete
 			if (($action == 'delete') && ($user->rights->removeconf->delete_propal_supplier)){
 				$this->results = true;
-				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id.'&token='.newToken();
 				$action_confirm = 'confirm_delete';
 				dol_syslog(get_class($this).'::action = delete', LOG_DEBUG, 1 , '', '');
 			}
@@ -549,7 +549,7 @@ class Actionsremoveconf
         	// Purchase order validate and approve
         	if (($action == 'valid') && ($user->rights->removeconf->validate_purchase_order)){
         		$this->results = true;
-        		$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+        		$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id.'&token='.newToken();
         		$action_confirm = 'confirm_valid';
         		dol_syslog(get_class($this).'::action = valid', LOG_DEBUG, 1 , '', '');
         	}
