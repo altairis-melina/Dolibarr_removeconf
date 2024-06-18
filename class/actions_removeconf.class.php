@@ -169,7 +169,7 @@ class Actionsremoveconf
 			//ask_deleteline
 			if (($action == 'ask_deleteline') && ($user->rights->removeconf->delete_propale_line)){
 				$this->results = true;
-				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&lineid=' . $parameters['lineid'];
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&token='.newToken() . '&lineid=' . $parameters['lineid'];
 				$action_confirm = 'confirm_deleteline';
 				dol_syslog(get_class($this).'::action = ask_deleteline', LOG_DEBUG, 1 , '', '');
 			}
@@ -251,7 +251,7 @@ class Actionsremoveconf
 			//ask_deleteline
 			if (($action == 'ask_deleteline') && ($user->rights->removeconf->delete_order_line)){
 				$this->results = true;
-				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&lineid=' . $parameters['lineid'];
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&token='.newToken() . '&lineid=' . $parameters['lineid'];
 				$action_confirm = 'confirm_deleteline';
 				dol_syslog(get_class($this).'::action = ask_deleteline', LOG_DEBUG, 1 , '', '');
 			}
@@ -324,7 +324,7 @@ class Actionsremoveconf
 			//ask_deleteline
 			if (($action == 'ask_deleteline') && ($user->rights->removeconf->delete_invoice_line)){
 				$this->results = true;
-				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&lineid=' . $parameters['lineid'];
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&token='.newToken() . '&lineid=' . $parameters['lineid'];
 				$action_confirm = 'confirm_deleteline';
 				dol_syslog(get_class($this).'::action = ask_deleteline', LOG_DEBUG, 1 , '', '');
 			}
@@ -412,7 +412,7 @@ class Actionsremoveconf
 			//ask_deleteline
 			if (($action == 'ask_deleteline') && ($user->rights->removeconf->delete_propal_supplier_line)){
 				$this->results = true;
-				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&lineid=' . $parameters['lineid'];
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&token='.newToken() . '&lineid=' . $parameters['lineid'];
 				$action_confirm = 'confirm_deleteline';
 				dol_syslog(get_class($this).'::action = ask_deleteline', LOG_DEBUG, 1 , '', '');
 			}
@@ -577,7 +577,7 @@ class Actionsremoveconf
         	// Purchase order delete line
         	if (($action == 'ask_deleteline') && ($user->rights->removeconf->delete_purchase_order_line)){
         		$this->results = true;
-        		$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&lineid=' . $parameters['lineid'];
+        		$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&token='.newToken() . '&lineid=' . $parameters['lineid'];
         		$action_confirm = 'confirm_deleteline';
         		dol_syslog(get_class($this).'::action = deleteline', LOG_DEBUG, 1 , '', '');
         	}
