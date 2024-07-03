@@ -542,7 +542,7 @@ class Actionsremoveconf
         	// Purchase order Delete
         	if (($action == 'delete') && ($user->rights->removeconf->delete_purchase_order)){
         		$this->results = true;
-        		$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . $object->id.'&token='.newToken();
+        		$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&token=' . newToken();
         		$action_confirm = 'confirm_delete';
         		dol_syslog(get_class($this).'::action = delete', LOG_DEBUG, 1 , '', '');
         	}
