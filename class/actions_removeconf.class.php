@@ -129,6 +129,28 @@ class Actionsremoveconf
 	}
 
 	/**
+	 * Overloading the doActions function : replacing the parent's function with the one below
+	 *
+	 * @param   array           $parameters     Hook metadatas (context, etc...)
+	 * @param   CommonObject    $object         The object to process (an invoice if you are in invoice module, a propale in propale's module, etc...)
+	 * @param   string          $action         Current action (if set). Generally create or edit or null
+	 * @param   HookManager     $hookmanager    Hook manager propagated to allow calling another hook
+	 * @return  int                             Return integer < 0 on error, 0 on success, 1 to replace standard code
+	 */
+	public function doActions($parameters, &$object, &$action, $hookmanager)
+	{
+		// spécif Visuals : rediriger la fiche sur l’onglet Ventes à la réouverture
+		if (in_array('ordercard', explode(':', $parameters['context'])) && $action == 'confirm_modif') {
+
+			global $conf;
+			$conf->global->MAIN_HTML_FOOTER = $conf->global->MAIN_HTML_FOOTER ?? '';
+			$footerjs = '<script type="text/javascript">document.location.href="'.$_SERVER['PHP-SELF'].'?id='.$object->id.'";</script>';
+			$conf->global->MAIN_HTML_FOOTER .= $footerjs;
+		}
+		return 0;
+	}
+
+	/**
 	 * Overloading the formConfirm function : replacing the parent's function with the one below
 	 *
 	 * @param   array()         $parameters     Hook metadatas (context, etc...)
