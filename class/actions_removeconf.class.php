@@ -227,7 +227,7 @@ class Actionsremoveconf
 				$action_confirm = 'confirm_modif';
 				$tab = GETPOST('tab');
 				if (!empty($tab)) {
-					$action_confirm = $action_confirm.'&token='.newToken().'&tab='.$tab;
+					$action_confirm = $action_confirm.'&token='.newToken();
 				}
 				dol_syslog(get_class($this).'::action = modif', LOG_DEBUG, 1 , '', '');
 			}
