@@ -144,7 +144,7 @@ class Actionsremoveconf
 
 			global $conf;
 			$conf->global->MAIN_HTML_FOOTER = $conf->global->MAIN_HTML_FOOTER ?? '';
-			$footerjs = '<script type="text/javascript">document.location.href="'.$_SERVER['PHP-SELF'].'?id='.$object->id.'";</script>';
+			$footerjs = '<script type="text/javascript">document.location.href="'.$_SERVER['PHP_SELF'].'?id='.$object->id.'";</script>';
 			$conf->global->MAIN_HTML_FOOTER .= $footerjs;
 		}
 		return 0;
